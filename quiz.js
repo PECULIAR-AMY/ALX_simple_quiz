@@ -1,20 +1,21 @@
 function checkAnswer() {
-    var correctAnswer = "4"
+	// Identify the correct answer
+	const correctAnswer = '4';
+
+	// Retrieve the user's answer
+	const userAnswer = document.querySelector(
+		'input[name="quiz"]:checked'
+	).value;
+
+	// Compare the user's answer with the correct answer
+	if (userAnswer === correctAnswer) {
+		document.getElementById('feedback').textContent = 'Correct! Well done.';
+	} else {
+		document.getElementById('feedback').textContent =
+			"That's incorrect. Try again!";
+	}
 }
 
-var checkRadioButton = document.querySelector ('input [name="quize"]:checked');
-
-var selectedRadioAnswer = selectedRadioButton.value;
-console.log(userAnswer);
-
-var feedBackElement = document.getElementById('feedback');
-if (userAnswer === correctAnswer) {
-    feedBackElement.textContent = "Correct! Well done.";
- } else {
-        feedBackElement.textContent = "That's incorrect. Try again!";
-    }
-
-var submitAnswerButton = document.getElementById ('submit-answer');
-submitAnswerButton.addEventListener('click',checkAnswer);
-
-
+// Add event listener to the Submit Answer button
+const submitButton = document.getElementById('submit-answer');
+submitButton.addEventListener('click', checkAnswer);
